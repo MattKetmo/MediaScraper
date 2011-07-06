@@ -4,6 +4,8 @@ Initially created to scrap movies
 
 ## Usage
 
+```php
 $tmdb    = new TheMovieDb('MY_API_K3Y');
 $scraper = new Scraper($tmdb);
 $movie   = $scraper->search('The Social Network');
+```
