@@ -2,13 +2,12 @@
 
 namespace MediaScraper\Adapter\Movie;
 
-use MediaScraper\Adapter;
 use Symfony\Component\DomCrawler\Crawler;
 
-class TheMovieDb implements Adapter
+class TheMovieDb extends AbstractAdapter
 {
     const SEARCH_URL = "http://api.themoviedb.org/2.1/Movie.search/%s/xml/%s/%s";
-    const INFO_URL   = 'http://api.themoviedb.org/2.1/Movie.getInfo/%s/xml/%s/%s';
+    const FIND_URL   = 'http://api.themoviedb.org/2.1/Movie.getInfo/%s/xml/%s/%s';
     const IMDB_URL   = 'http://api.themoviedb.org/2.1/Movie.imdbLookup/%s/xml/%s/%s';
     
     protected $apikey;
@@ -20,16 +19,6 @@ class TheMovieDb implements Adapter
         $this->lang = $lang;
     }
     
-    public function getSearchUrl($keys)
-    {
-        // TODO
-    }
-    
-    public function getFindUrl($keys)
-    {
-        // TODO
-    }
-    
     public function getSearchResult(Crawler $crawler)
     {
         // TODO
@@ -38,5 +27,35 @@ class TheMovieDb implements Adapter
     public function getDetails(Crawler $crawler)
     {
         // TODO
+    }
+    
+    protected function getSearchMovieUrl($title, $year = false)
+    {
+        if ($year) {
+            $input = $title . ' ' . $year;
+        } else {
+            $input = $title;
+        }
+        
+        return sprintf(TheMovieDb::SEARCH_URL,
+            $this->lang,
+            $this->apikey,
+            urlencode($input));
+    }
+    
+    protected function getFindMovieUrl($id)
+    {
+        return sprintf(TheMovieDb::FIND_URL,
+            $this->lang,
+            $this->apikey,
+            $id);
+    }
+    
+    protected function getImdbLookupUrl($imdbId)
+    {
+        return sprintf(TheMovieDb::IMDB_URL,
+            $this->lang,
+            $this->apikey,
+            $imdbId);
     }
 }
