@@ -12,27 +12,31 @@ use Symfony\Component\DomCrawler\Crawler;
 interface Adapter
 {
     /**
-     * Get direct search URL with specific keys (like imdb id)
-     */
-    //function getDetailsUrl($options = array());
-    
-    /**
      * Get the URL to crawl
      *
-     * @param string $name    The name of the media to search
+     * @param mixed $keys The name of the media to search
      * 
      * @return string The search URL 
      */
-    function getSearchUrl($name);
+    public function getSearchUrl($keys);
+    
+    /**
+     * Get direct search URL with specific keys (like imdb id)
+     *
+     * @param mixed $keys
+     *
+     * @return string Url of the looking media
+     */
+    public function getFindUrl($keys);
     
     /**
      * Look into the crawled web page to get a list of result
      *
      * @param Crawler The crawled page
      *
-     * @return array The search result (with title & url)
+     * @return array The search result (with titles & urls)
      */
-    function getSearchResult(Crawler $crawler);
+    public function getSearchResult(Crawler $crawler);
     
     /**
      * Grab all data of the media
@@ -41,5 +45,5 @@ interface Adapter
      *
      * @return mixed The media
      */
-    function getDetails(Crawler $crawler);
+    public function getDetails(Crawler $crawler);
 }
