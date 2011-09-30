@@ -45,7 +45,16 @@ class TheMovieDb extends AbstractAdapter
     
     public function getDetails(Crawler $crawler)
     {
-        // TODO
+        $movies = $crawler->filter('movies > movie');
+        $movie = $movies->first();
+        
+        // TODO : more info
+        
+        return array(
+            'title' => $movie->filter('name')->text(),
+            'year'  => $movie->filter('released')->text(),
+            'plot'  => $movie->filter('overview')->text(),
+            );
     }
     
     protected function getSearchMovieUrl($title, $year = false)
