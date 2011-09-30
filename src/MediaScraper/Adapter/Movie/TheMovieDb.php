@@ -21,7 +21,26 @@ class TheMovieDb extends AbstractAdapter
     
     public function getSearchResult(Crawler $crawler)
     {
-        // TODO
+        $ret = array();
+        $movies = $crawler->filter('movies > movie');
+        
+        foreach ($movies as $movie) {
+            $title = $movie->getElementsByTagName('name')->item(0)->nodeValue;
+            $released = $movie->getElementsByTagName('released')->item(0)->nodeValue;
+            preg_match('/(\d\d\d\d)-\d\d-\d\d/', $released, $matches);
+            $year = $matches[1];
+            $id = $movie->getElementsByTagName('id')->item(0)->nodeValue;
+            
+            $ret[] = array(
+                'name' => sprintf('%s (%s)', $title, $year),
+                'url'  => sprintf(TheMovieDb::FIND_URL,
+                    $this->lang,
+                    $this->apikey,
+                    $id)
+                );
+        }
+        
+        return $ret;
     }
     
     public function getDetails(Crawler $crawler)
