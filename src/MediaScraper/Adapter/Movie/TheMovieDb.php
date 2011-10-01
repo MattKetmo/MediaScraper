@@ -52,7 +52,7 @@ class TheMovieDb extends AbstractAdapter
         
         return array(
             'title' => $movie->filter('name')->text(),
-            'year'  => $movie->filter('released')->text(),
+            'year'  => substr($movie->filter('released')->text(), 0, 4),
             'plot'  => $movie->filter('overview')->text(),
             );
     }
