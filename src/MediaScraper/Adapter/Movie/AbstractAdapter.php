@@ -40,10 +40,10 @@ abstract class AbstractAdapter implements Adapter
                 // TODO throws Exception
             }
         } else if (is_string($keys)){
-            if (preg_match('/tt\d+/', $keys)) {
-                
-            } else {
+            if (preg_match('/^tt\d+$/', $keys)) {
                 $ret = $this->getImdbLookupUrl($keys);
+            } else {
+                $ret = $this->getFindMovieUrl($keys);
             }
         }
         
