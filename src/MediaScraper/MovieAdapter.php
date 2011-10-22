@@ -26,26 +26,26 @@ interface MovieAdapter
      *
      * @param Crawler $crawler The crawled page
      *
-     * @return array Array of Movie
+     * @return array Array of Movies
      */
-    function getSearchResult($crawler);
+    function getSearchResult(Crawler $crawler);
 
     /**
      * Get direct search URL with specific keys (like imdb id)
      *
-     * @param Movie &$movie The movie to search
+     * @param Movie $movie The movie to search
      *
      * @return string Url of the movie
      */
-    function getDetailUrl(&$movie);
+    function getDetailUrl(Movie $movie);
 
     /**
-     * Grab all data of the movie
+     * Grab all data of the movie and load them into $movie
      *
      * @param Crawler $crawler The crawled page
      * @param Movie   $movie   The movie to load
      *
      * @return void
      */
-    function loadDetails($crawler, $movie);
+    function loadDetails(Crawler $crawler, Movie $movie);
 }

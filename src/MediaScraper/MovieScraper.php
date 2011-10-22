@@ -2,10 +2,14 @@
 
 namespace MediaScraper;
 
-use Goutte\Client;
+use Symfony\Component\BrowserKit\Client;
 
 /**
- * Scraper that call adapter to grab information
+ * Scraper used to grab information about movies
+ *
+ * This scraper allows you to search movie by its title and year, then lazy 
+ * load information about it. The search method gives ID about the movies 
+ * found, and the load method grab information about the movie by its ID.
  *
  * @author Matthieu Moquet <matthieu@moquet.net>
  */
@@ -20,7 +24,7 @@ class MovieScraper
      * @param Client       $client  The client scraper
      * @param MovieAdapter $adapter The movie adapter
      */
-    public function __construct($client, $adapter)
+    public function __construct(Client $client, MovieAdapter $adapter)
     {
         $this->adapter = $adapter;
         $this->client = $client;
@@ -32,7 +36,7 @@ class MovieScraper
      * @param string $title Title of the movie
      * @param mixed  $year  Year of the movie (optional)
      *
-     * @return array Array of Movie
+     * @return array Array of Movies identified by its ID 
      */
     public function search($title, $year = false)
     {
@@ -47,11 +51,11 @@ class MovieScraper
      *
      * Details are found by id (such as IMDb id)
      *
-     * @param Movie &$movie The movie to load
+     * @param Movie $movie The movie to load
      *
      * @return void
      */
-    public function load(&$movie)
+    public function load(Movie $movie)
     {
         $url = $this->adapter->getDetailUrl($movie);
         $crawler = $this->client->request('GET', $url);
