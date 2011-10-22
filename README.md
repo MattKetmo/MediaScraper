@@ -1,6 +1,6 @@
 # PHP5 library to grab media information from the web (dev)
 
-Initially created to scrap movies
+Initially created to scrap movies and tv shows
 
 ## Installation
 
@@ -11,6 +11,10 @@ Initially created to scrap movies
 ## Usage
 
 ```php
+<?php
+
+require_once '/path/to/autoload.php';
+
 use MediaScraper\Movie;
 use MediaScraper\MovieScraper;
 use MediaScraper\Adapter\TheMovieDb;
