@@ -76,15 +76,13 @@ class ShowScraper
     }
 
     /**
-     * Get episode of a show
+     * Load episode of a show
      *
-     * @param Show  $show    The show of the episode
-     * @param mixed $saison  The saison number (int or string)
      * @param mixed $episode The episode number (int or string)
      *
      * @return Episode The wanted episode
      */
-    public function getEpisode(Show $show, $saison, $episode)
+    public function loadEpisode(Episode $episode)
     {
         // TODO
     }

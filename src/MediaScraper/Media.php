@@ -11,7 +11,7 @@ abstract class Media
 {
     protected $id  = array();
     protected $url = array();
-    
+
     /**
      * Get the ID attached to the $key
      *

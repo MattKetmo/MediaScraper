@@ -117,7 +117,7 @@ class Show extends Media
     /**
      * Set the number of season in this show
      *
-     * @param int The number of seasons in this show
+     * @param int $count The number of seasons in this show
      *
      * @return void
      */
