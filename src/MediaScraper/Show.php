@@ -14,6 +14,7 @@ class Show extends Media
     protected $title;
     protected $year;
     protected $plot;
+    protected $saisonCount;
 
     /**
      * Get the IMDb ID of this movie
@@ -101,5 +102,27 @@ class Show extends Media
     public function setPlot($plot)
     {
         $this->plot = $plot;
+    }
+
+    /**
+     * Get number of saison in this show show
+     *
+     * @return int The number of saisons in this show
+     */
+    public function getSaisonCount()
+    {
+        return $this->saisonCount;
+    }
+
+    /**
+     * Set the number of saison in this show
+     *
+     * @param int The number of saisons in this show
+     *
+     * @return void
+     */
+    public function setSaisonCount($count)
+    {
+        $this->saisonCount = $count;
     }
 }

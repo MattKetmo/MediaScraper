@@ -63,18 +63,6 @@ class ShowScraper
     }
 
     /**
-     * Get number of saison in a particular show
-     *
-     * @param Show $show The show
-     *
-     * @return int The number of saisons in this show
-     */
-    public function getSaisonCount(Show $show)
-    {
-        // TODO
-    }
-
-    /**
      * Get episode list in a saison of a show
      *
      * @param Show  $show   The show of the episode
