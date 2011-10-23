@@ -63,18 +63,6 @@ class ShowScraper
     }
 
     /**
-     * Get number of saison in a particular show
-     *
-     * @param Show $show The show
-     *
-     * @return int The number of saisons in this show
-     */
-    public function getSaisonCount(Show $show)
-    {
-        // TODO
-    }
-
-    /**
      * Get episode list in a saison of a show
      *
      * @param Show  $show   The show of the episode
@@ -88,15 +76,13 @@ class ShowScraper
     }
 
     /**
-     * Get episode of a show
+     * Load episode of a show
      *
-     * @param Show  $show    The show of the episode
-     * @param mixed $saison  The saison number (int or string)
      * @param mixed $episode The episode number (int or string)
      *
      * @return Episode The wanted episode
      */
-    public function getEpisode(Show $show, $saison, $episode)
+    public function loadEpisode(Episode $episode)
     {
         // TODO
     }

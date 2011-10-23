@@ -48,5 +48,33 @@ interface ShowAdapter
      * @return void
      */
     function loadShowDetails(Crawler $crawler, Show $show);
+
+    /**
+     * Get url of the episode guide
+     *
+     * @param Show $show The episodes' show
+     *
+     * @return string Url of the episodes
+     */
+    function getEpisodeGuideUrl(Show $show);
+
+    /**
+     * Grab the episodes
+     *
+     * @param Crawler $crawler The crawled page
+     *
+     * @return array Array of Episodes
+     */
+    function getEpisodeList(Crawler $crawler);
+
+    /**
+     * Grab all data of the episode and load it
+     *
+     * @param Crawler $crawler The crawled page
+     * @param Episode $episode The episode to load
+     *
+     * @return void
+     */
+    function loadEpisode(Crawler $crawler, Episode $episode);
 }
 
