@@ -40,10 +40,10 @@ class ShowScraper
      */
     public function search($title, $year = false)
     {
-        $url = $this->adapter->getSearchUrl($title, $year);
+        $url = $this->adapter->getShowSearchUrl($title, $year);
         $crawler = $this->client->request('GET', $url);
 
-        return $this->adapter->getSearchResult($crawler);
+        return $this->adapter->getShowSearchResult($crawler);
     }
 
     /**
@@ -57,9 +57,9 @@ class ShowScraper
      */
     public function load(Show $show)
     {
-        $url = $this->adapter->getDetailUrl($show);
+        $url = $this->adapter->getShowDetailUrl($show);
         $crawler = $this->client->request('GET', $url);
-        $this->adapter->loadDetails($crawler, $show);
+        $this->adapter->loadShowDetails($crawler, $show);
     }
 
     /**

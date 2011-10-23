@@ -19,7 +19,7 @@ interface MovieAdapter
      *
      * @return string The search URL
      */
-    function getSearchUrl($title, $year = false);
+    function getMovieSearchUrl($title, $year = false);
 
     /**
      * Look into the crawled web page to get a list of result
@@ -28,7 +28,7 @@ interface MovieAdapter
      *
      * @return array Array of Movies
      */
-    function getSearchResult(Crawler $crawler);
+    function getMovieSearchResult(Crawler $crawler);
 
     /**
      * Get direct search URL with specific keys (like imdb id)
@@ -37,7 +37,7 @@ interface MovieAdapter
      *
      * @return string Url of the movie
      */
-    function getDetailUrl(Movie $movie);
+    function getMovieDetailUrl(Movie $movie);
 
     /**
      * Grab all data of the movie and load them into $movie
@@ -47,5 +47,5 @@ interface MovieAdapter
      *
      * @return void
      */
-    function loadDetails(Crawler $crawler, Movie $movie);
+    function loadMovieDetails(Crawler $crawler, Movie $movie);
 }

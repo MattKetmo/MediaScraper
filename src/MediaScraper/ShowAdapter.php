@@ -19,7 +19,7 @@ interface ShowAdapter
      *
      * @return string The search URL
      */
-    function getSearchUrl($title, $year = false);
+    function getShowSearchUrl($title, $year = false);
 
     /**
      * Look into the crawled web page to get a list of result
@@ -28,7 +28,7 @@ interface ShowAdapter
      *
      * @return array Array of Shows
      */
-    function getSearchResult(Crawler $crawler);
+    function getShowSearchResult(Crawler $crawler);
 
     /**
      * Get direct search URL with specific keys (like imdb id)
@@ -37,7 +37,7 @@ interface ShowAdapter
      *
      * @return string Url of the show
      */
-    function getDetailUrl(Show $show);
+    function getShowDetailUrl(Show $show);
 
     /**
      * Grab all data of the show and load them into $show

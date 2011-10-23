@@ -18,7 +18,7 @@ class ImdbApiCom implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function getSearchUrl($title, $year = false)
+    public function getMovieSearchUrl($title, $year = false)
     {
         if ($year) {
             $params = sprintf('?t=%s&y=%s', urlencode($title), urlencode($year));
@@ -49,7 +49,7 @@ class ImdbApiCom implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function getDetailUrl(Movie $movie)
+    public function getMovieDetailUrl(Movie $movie)
     {
         if ($movie->getImdbId()) {
             $params = sprintf('?i=%s', urlencode($movie->getImdbId()));
@@ -64,7 +64,7 @@ class ImdbApiCom implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function loadDetails(Crawler $crawler, Movie $movie)
+    public function loadMovieDetails(Crawler $crawler, Movie $movie)
     {
         $content = $crawler->first()->text();
         $info = json_decode($content, true);

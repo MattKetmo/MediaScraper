@@ -40,10 +40,10 @@ class MovieScraper
      */
     public function search($title, $year = false)
     {
-        $url = $this->adapter->getSearchUrl($title, $year);
+        $url = $this->adapter->getMovieSearchUrl($title, $year);
         $crawler = $this->client->request('GET', $url);
 
-        return $this->adapter->getSearchResult($crawler);
+        return $this->adapter->getMovieSearchResult($crawler);
     }
 
     /**
@@ -57,8 +57,8 @@ class MovieScraper
      */
     public function load(Movie $movie)
     {
-        $url = $this->adapter->getDetailUrl($movie);
+        $url = $this->adapter->getMovieDetailUrl($movie);
         $crawler = $this->client->request('GET', $url);
-        $this->adapter->loadDetails($crawler, $movie);
+        $this->adapter->loadMovieDetails($crawler, $movie);
     }
 }

@@ -35,7 +35,7 @@ class TheMovieDb implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function getSearchUrl($title, $year = false)
+    public function getMovieSearchUrl($title, $year = false)
     {
         if ($year) {
             $input = $title . ' ' . $year;
@@ -43,7 +43,7 @@ class TheMovieDb implements MovieAdapter
             $input = $title;
         }
 
-        return sprintf(TheMovieDb::SEARCH_URL,
+        return sprintf(self::SEARCH_URL,
             $this->lang,
             $this->apikey,
             urlencode($input)
@@ -53,7 +53,7 @@ class TheMovieDb implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function getSearchResult(Crawler $crawler)
+    public function getMovieSearchResult(Crawler $crawler)
     {
         $ret = array();
         $movies = $crawler->filter('movies > movie');
@@ -81,7 +81,7 @@ class TheMovieDb implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function getDetailUrl(Movie $movie)
+    public function getMovieDetailUrl(Movie $movie)
     {
         if ($movie->getId('themoviedb.org')) {
             $url = sprintf(self::FIND_URL,
@@ -105,7 +105,7 @@ class TheMovieDb implements MovieAdapter
     /**
      * {@inheritdoc}
      */
-    public function loadDetails(Crawler $crawler, Movie $movie)
+    public function loadMovieDetails(Crawler $crawler, Movie $movie)
     {
         $movies = $crawler->filter('movies > movie');
         $movieDetails = $movies->first();
