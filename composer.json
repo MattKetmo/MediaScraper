@@ -1,0 +1,21 @@
+{
+    "name": "MattKetmo/MediaScraper",
+    "type": "library",
+    "description": "Grab information about media (movie, TV show, ...)",
+    "keywords": ["media","scraper","imdb"],
+    "homepage": "http://github.com/MattKetmo/MediaScraper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthieu Moquet",
+            "email": "matthieu@moquet.net",
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/browser-kit": ">=2.0.4-dev",
+        "symfony/class-loader": ">=2.0.4",
+        "symfony/css-selector": ">=2.0.4",
+        "symfony/dom-crawler": ">=2.0.4"
+    }
+}
