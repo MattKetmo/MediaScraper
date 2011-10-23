@@ -53,3 +53,10 @@ echo 'Name: ' . $movie->getTitle() . PHP_EOL;
 echo 'Year: ' . $movie->getYear()  . PHP_EOL;
 echo 'Plot: ' . $movie->getPlot()  . PHP_EOL;
 ```
+
+## TODO
+
+- Complete Movie, Show & Episode objects
+- Complete ShowScraper/ShowAdapter
+- Create TheTvDbAdpater implements ShowAdpater
+- Create ImdbAdapter implements MovieAdapter, ShowAdpater
