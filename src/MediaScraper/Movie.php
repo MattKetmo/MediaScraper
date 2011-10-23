@@ -7,41 +7,13 @@ use DateTime;
 /**
  * A movie
  */
-class Movie
+class Movie extends Media
 {
-    protected $id = array();
+    const IMDB_IDENTIFIER = 'imdb';
+
     protected $title;
     protected $year;
     protected $plot;
-
-    /**
-     * Get the ID attached to the $key
-     *
-     * @param string $key The key/identifier of the ID
-     *
-     * @return mixed The ID
-     */
-    public function getId($key)
-    {
-        if (!array_key_exists($key, $this->id)) {
-            return false;
-        }
-
-        return $this->id[$key];
-    }
-
-    /**
-     * Set the ID attached to the $key
-     *
-     * @param string $key The key/identifier of the ID
-     * @param mixed  $id  The ID
-     *
-     * @return void
-     */
-    public function setId($key, $id)
-    {
-        $this->id[$key] = $id;
-    }
 
     /**
      * Get the IMDb ID of this movie
@@ -50,7 +22,7 @@ class Movie
      */
     public function getImdbId()
     {
-        return $this->getId('imdb');
+        return $this->getId(self::IMDB_IDENTIFIER);
     }
 
     /**
@@ -62,7 +34,7 @@ class Movie
      */
     public function setImdbId($id)
     {
-        $this->setId('imdb', $id);
+        $this->setId(self::IMDB_IDENTIFIER, $id);
     }
 
     /**
