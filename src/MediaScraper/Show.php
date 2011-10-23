@@ -5,7 +5,7 @@ namespace MediaScraper;
 use DateTime;
 
 /**
- * A Show
+ * A TV Show
  */
 class Show extends Media
 {
@@ -28,7 +28,7 @@ class Show extends Media
     /**
      * Set the IMDb ID of the movie
      *
-     * @param mixed  $id  The IMDb ID (ttXXXXXXX)
+     * @param mixed $id The IMDb ID (ttXXXXXXX)
      *
      * @return void
      */

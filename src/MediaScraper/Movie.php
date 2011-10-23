@@ -28,7 +28,7 @@ class Movie extends Media
     /**
      * Set the IMDb ID of the movie
      *
-     * @param mixed  $id  The IMDb ID (ttXXXXXXX)
+     * @param mixed $id The IMDb ID (ttXXXXXXX)
      *
      * @return void
      */
