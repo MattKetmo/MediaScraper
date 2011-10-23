@@ -14,7 +14,7 @@ class Show extends Media
     protected $title;
     protected $year;
     protected $plot;
-    protected $saisonCount;
+    protected $seasonCount;
 
     /**
      * Get the IMDb ID of this movie
@@ -105,24 +105,42 @@ class Show extends Media
     }
 
     /**
-     * Get number of saison in this show show
+     * Get number of season in this show show
      *
-     * @return int The number of saisons in this show
+     * @return int The number of seasons in this show
      */
-    public function getSaisonCount()
+    public function getSeasonCount()
     {
-        return $this->saisonCount;
+        return $this->seasonCount;
     }
 
     /**
-     * Set the number of saison in this show
+     * Set the number of season in this show
      *
-     * @param int The number of saisons in this show
+     * @param int The number of seasons in this show
      *
      * @return void
      */
-    public function setSaisonCount($count)
+    public function setSeasonCount($count)
     {
-        $this->saisonCount = $count;
+        $this->seasonCount = $count;
+    }
+
+    /**
+     * Get an episode of this show
+     *
+     * @param int $season  The numero of the season
+     * @param int $episode The numero of the episode
+     *
+     * @return Episode The episode (lazy loaded)
+     */
+    public function getEpisode($season, $episode)
+    {
+        $episode = new Episode();
+        $episode->setShow($this);
+        $episode->setSeason($season);
+        $episode->setNumber($episode);
+
+        return $episode;
     }
 }

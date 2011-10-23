@@ -11,6 +11,7 @@ class Episode extends Media
 {
     const IMDB_IDENTIFIER = 'imdb';
 
+    protected $show;
     protected $season;
     protected $number;
     protected $title;
@@ -36,6 +37,28 @@ class Episode extends Media
     public function setImdbId($id)
     {
         $this->setId(self::IMDB_IDENTIFIER, $id);
+    }
+
+    /**
+     * Get the show of the episode
+     *
+     * @return Show The show of the episode
+     */
+    public function getShow()
+    {
+        return $this->show;
+    }
+
+    /**
+     * Set the show of the episode in the show
+     *
+     * @param Show $show The show of the episode
+     *
+     * @return void
+     */
+    public function setShow(Show $show)
+    {
+        $this->show = $show;
     }
 
     /**
