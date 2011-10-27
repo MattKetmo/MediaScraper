@@ -9,7 +9,7 @@ use Symfony\Component\DomCrawler\Crawler;
  *
  * @author Matthieu Moquet <matthieu@moquet.net>
  */
-interface MovieAdapter
+interface MovieAdapterInterface
 {
     /**
      * Get the URL to crawl

@@ -3,7 +3,7 @@
 namespace MediaScraper\Adapter;
 
 use MediaScraper\Movie;
-use MediaScraper\MovieAdapter;
+use MediaScraper\MovieAdapterInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -11,7 +11,7 @@ use Symfony\Component\DomCrawler\Crawler;
  *
  * @author Matthieu Moquet <matthieu@moquet.net>
  */
-class TheMovieDb implements MovieAdapter
+class TheMovieDb implements MovieAdapterInterface
 {
     const SEARCH_URL = "http://api.themoviedb.org/2.1/Movie.search/%s/xml/%s/%s";
     const FIND_URL   = 'http://api.themoviedb.org/2.1/Movie.getInfo/%s/xml/%s/%s';

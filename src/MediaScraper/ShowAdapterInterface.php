@@ -9,7 +9,7 @@ use Symfony\Component\DomCrawler\Crawler;
  *
  * @author Matthieu Moquet <matthieu@moquet.net>
  */
-interface ShowAdapter
+interface ShowAdapterInterface
 {
     /**
      * Get the URL to crawl

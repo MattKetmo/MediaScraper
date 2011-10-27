@@ -22,9 +22,9 @@ class ShowScraper
      * Build the scraper
      *
      * @param Client      $client  The client scraper
-     * @param ShowAdapter $adapter The show adapter
+     * @param ShowAdapterInterface $adapter The show adapter
      */
-    public function __construct(Client $client, ShowAdapter $adapter)
+    public function __construct(Client $client, ShowAdapterInterface $adapter)
     {
         $this->adapter = $adapter;
         $this->client = $client;

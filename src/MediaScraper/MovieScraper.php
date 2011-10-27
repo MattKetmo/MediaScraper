@@ -22,9 +22,9 @@ class MovieScraper
      * Build the scraper
      *
      * @param Client       $client  The client scraper
-     * @param MovieAdapter $adapter The movie adapter
+     * @param MovieAdapterInterface $adapter The movie adapter
      */
-    public function __construct(Client $client, MovieAdapter $adapter)
+    public function __construct(Client $client, MovieAdapterInterface $adapter)
     {
         $this->adapter = $adapter;
         $this->client = $client;
