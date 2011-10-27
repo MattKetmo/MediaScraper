@@ -3,7 +3,7 @@
 namespace MediaScraper\Adapter;
 
 use MediaScraper\Movie;
-use MediaScraper\MovieAdapter;
+use MediaScraper\MovieAdapterInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -11,7 +11,7 @@ use Symfony\Component\DomCrawler\Crawler;
  *
  * @author Matthieu Moquet <matthieu@moquet.net>
  */
-class ImdbApiCom implements MovieAdapter
+class ImdbApiCom implements MovieAdapterInterface
 {
     const BASE_URL = "http://www.imdbapi.com/";
     
